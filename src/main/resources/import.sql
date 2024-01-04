@@ -1,0 +1,3 @@
+INSERT INTO tb_travel (destiny, departure_date, return_date, means_of_transport, accommodation, budget) VALUES ('Salvador', '2023-12-31', '2024-02-15' , 'busao', 'hotel', 15000);
+INSERT INTO tb_travel (destiny, departure_date, return_date, means_of_transport, accommodation, budget) VALUES ('Rio de janeiro', '2023-12-31', '2024-02-15' , 'busao', 'hotel', 18000);
+INSERT INTO tb_travel (destiny, departure_date, return_date, means_of_transport, accommodation, budget) VALUES ('Gramado', '2023-12-31', '2024-02-15' , 'busao', 'hotel', 3000);

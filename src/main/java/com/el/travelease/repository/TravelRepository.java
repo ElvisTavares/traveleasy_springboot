@@ -1,5 +1,9 @@
 package com.el.travelease.repository;
 
-public interface TravelRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.el.travelease.entities.Travel;
+
+public interface TravelRepository extends JpaRepository<Travel, Long> {
 
 }
