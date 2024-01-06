@@ -3,6 +3,7 @@ package com.el.travelease.dto;
 import java.time.LocalDate;
 
 import com.el.travelease.entities.Travel;
+import com.el.travelease.projections.TravelMinProjection;
 
 public class TravelMinDTO {
 
@@ -19,6 +20,13 @@ public class TravelMinDTO {
 		id = entity.getId();
 		departureDate = entity.getDepartureDate();
 		meansOfTransport = entity.getMeansOfTransport();
+	}
+
+	public TravelMinDTO(TravelMinProjection projection) {
+
+		id = projection.getId();
+		departureDate = projection.getDepartureDate();
+		meansOfTransport = projection.getMeansOfTransport();
 	}
 
 	public Long getId() {
