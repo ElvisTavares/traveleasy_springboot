@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TravelRepository extends JpaRepository<Travel, Long> {
     @Query(nativeQuery = true, value = """
-        SELECT tb_travel.id, tb_travel.destiny, tb_travel.departure_date AS `departureDate`, tb_travel.return_date AS returnDate,
+        SELECT tb_travel.id, tb_travel.destiny, tb_travel.departure_date AS departureDate, tb_travel.return_date AS returnDate,
         		tb_travel.means_of_transport AS meansOfTransport, tb_travel.accommodation, tb_travel.budget, tb_belonging.position
         		FROM tb_travel
         INNER JOIN tb_belonging ON tb_travel.id = tb_belonging.travel_id
