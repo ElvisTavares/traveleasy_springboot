@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import com.el.travelease.dto.TravelDTO;
+import com.el.travelease.dto.TravelStoreDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,6 +40,16 @@ public class Travel {
 		this.meansOfTransport = meansOfTransport;
 		this.accommodation = accommodation;
 		this.budget = budget;
+	}
+
+	public Travel(TravelStoreDTO data) {
+		this.destiny = data.getDestiny();
+		this.departureDate = data.getDepartureDate();
+		this.returnDate = data.getReturnDate();
+		this.meansOfTransport = data.getMeansOfTransport();
+		this.accommodation = data.getAccommodation();
+		this.budget = data.getBudget();
+
 	}
 
 	public Long getId() {

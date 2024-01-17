@@ -3,12 +3,10 @@ package com.el.travelease.controllers;
 import java.util.List;
 
 import com.el.travelease.dto.TravelDTO;
+import com.el.travelease.dto.TravelStoreDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.el.travelease.dto.TravelMinDTO;
 import com.el.travelease.entities.Travel;
@@ -34,6 +32,11 @@ public class TravelController {
 	public TravelDTO findById(@PathVariable Long id) {
 		TravelDTO result = travelService.findById(id);
 		return result;
+	}
+
+	@PostMapping
+	public void store(@RequestBody TravelStoreDTO data) {
+		travelService.store(data);
 	}
 
 }

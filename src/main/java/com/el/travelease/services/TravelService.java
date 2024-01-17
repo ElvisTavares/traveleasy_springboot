@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.el.travelease.dto.TravelDTO;
 import com.el.travelease.dto.TravelMinDTO;
+import com.el.travelease.dto.TravelStoreDTO;
 import com.el.travelease.projections.TravelMinProjection;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,10 @@ public class TravelService {
 	public List<TravelMinDTO> findByList(Long listId) {
 		List<TravelMinProjection> result = travelRepository.searchByList(listId);
 		return result.stream().map(x -> new TravelMinDTO(x)).toList();
+	}
+
+	@Transactional
+	public void store(TravelStoreDTO data) {
+		travelRepository.save(new Travel(data));
 	}
 }
