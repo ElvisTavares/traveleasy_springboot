@@ -52,7 +52,17 @@ public class Travel {
 
 	}
 
-	public Long getId() {
+	public Travel(Travel travel) {
+		this.id = travel.id;
+		this.destiny = travel.destiny;
+		this.departureDate = travel.departureDate;
+		this.returnDate = travel.returnDate;
+		this.meansOfTransport = travel.meansOfTransport;
+		this.accommodation = travel.accommodation;
+		this.budget = travel.budget;
+	}
+
+    public Long getId() {
 		return id;
 	}
 

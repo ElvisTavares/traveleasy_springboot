@@ -8,10 +8,13 @@ import com.el.travelease.dto.TravelStoreDTO;
 import com.el.travelease.projections.TravelMinProjection;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.el.travelease.entities.Travel;
 import com.el.travelease.repository.TravelRepository;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class TravelService {
@@ -24,7 +27,7 @@ public class TravelService {
 		return result;
 	}
 
-//	@Transactional(readOnly = true)
+	@Transactional
 	public TravelDTO findById(Long id){
 		Travel result = travelRepository.findById(id).get();
 		return new TravelDTO(result);
@@ -36,7 +39,10 @@ public class TravelService {
 	}
 
 	@Transactional
-	public void store(TravelStoreDTO data) {
-		travelRepository.save(new Travel(data));
+	public Travel store(TravelStoreDTO data) {
+		var travel = new Travel(data);
+		travelRepository.save(travel);
+
+		return  travel;
 	}
 }

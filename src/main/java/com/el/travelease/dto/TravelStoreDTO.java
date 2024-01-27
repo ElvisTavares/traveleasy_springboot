@@ -9,6 +9,7 @@ import java.time.LocalDate;
 public class TravelStoreDTO {
 
     private Long id;
+
     private String destiny;
     private LocalDate departureDate;
     private LocalDate returnDate;
