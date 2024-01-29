@@ -7,6 +7,7 @@ import com.el.travelease.dto.TravelMinDTO;
 import com.el.travelease.dto.TravelStoreDTO;
 import com.el.travelease.projections.TravelMinProjection;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,7 @@ public class TravelService {
 	}
 
 	@Transactional
-	public Travel store(TravelStoreDTO data) {
+	public Travel store(@Valid TravelStoreDTO data) {
 		var travel = new Travel(data);
 		travelRepository.save(travel);
 

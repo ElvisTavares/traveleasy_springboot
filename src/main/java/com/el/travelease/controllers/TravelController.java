@@ -5,6 +5,7 @@ import java.util.List;
 import com.el.travelease.dto.TravelDTO;
 import com.el.travelease.dto.TravelStoreDTO;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,7 @@ public class TravelController {
 	}
 
 	@PostMapping
-	public  ResponseEntity<Travel> store(@RequestBody TravelStoreDTO data, UriComponentsBuilder uriBuilder) {
+	public  ResponseEntity<Travel> store(@Valid @RequestBody TravelStoreDTO data, UriComponentsBuilder uriBuilder) {
 		var travel = travelService.store(data);
 		var uri = uriBuilder.path("travel/{id}").buildAndExpand(travel.getId()).toUri();
 

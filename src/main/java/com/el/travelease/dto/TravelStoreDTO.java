@@ -1,6 +1,8 @@
 package com.el.travelease.dto;
 
 import com.el.travelease.entities.Travel;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.BeanUtils;
 
 import java.math.BigDecimal;
@@ -10,10 +12,15 @@ public class TravelStoreDTO {
 
     private Long id;
 
+    @NotBlank
     private String destiny;
+    @Future
     private LocalDate departureDate;
+    @Future
     private LocalDate returnDate;
+    @NotBlank
     private String meansOfTransport;
+    @NotBlank
     private String accommodation;
     private BigDecimal budget;
 
